@@ -1,4 +1,3 @@
-  
 const { Pool } = require("pg");
 
 const pool = new Pool({
@@ -8,8 +7,8 @@ const pool = new Pool({
   database: 'lightbnb'
 });
 
-const properties = require('./json/properties.json');
-const users = require('./json/users.json');
+const properties = require('../json/properties.json');
+const users = require('../json/users.json');
 
 /// Users
 
@@ -138,7 +137,6 @@ const getAllProperties = function(options, limit = 10) {
 
   console.log('qString: ', queryString, 'qParams: ', queryParams, 'qLength: ', queryParams.length);
 
-  // 6
   return pool.query(queryString, queryParams)
   .then(res => res.rows);
 }
